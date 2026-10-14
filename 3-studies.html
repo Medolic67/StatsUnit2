@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Observational Studies and Experiments (2.5)</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Observational Studies and Experiments</h1>
+<p class="sub">Lesson 2.5: Variables, confounding, and what kind of study this is</p>
+<div class="bar"><button data-expand>Expand all answers</button></div>
+
+<h2>Variables</h2>
+<div class="grid">
+<div class="card"><b>Explanatory variable (factor)</b><br>The variable we think <b>explains or causes</b> changes in another. In an experiment, its levels are the treatments.</div>
+<div class="card"><b>Response variable</b><br>The outcome we <b>measure</b> to see the effect.</div>
+<div class="card"><b>Confounding variable</b><br>Related to the <b>explanatory</b> variable <u>and</u> influences the <b>response</b> variable. We can't tell whether the explanatory variable or the confounder caused the change.</div>
+<div class="card"><b>Extraneous variable</b><br>Any other variable that affects the response. It becomes confounding when it is also related to the explanatory variable.</div>
+</div>
+<div class="flow"><span>A: explanatory</span><i>—?→</i><span>B: response</span><i>←</i><span>C: confounder (related to A, influences B)</span></div>
+<div class="tip"><b>Classify variables</b>Say whether each variable is <b>categorical</b> (groups: whether or not took prep course, preeclampsia yes/no) or <b>quantitative</b> (numbers: SAT score, minutes, number of books).</div>
+
+<h2>Observational study vs experiment</h2>
+<table>
+<tr><th></th><th>Observational study</th><th>Experiment</th></tr>
+<tr><th>Treatment</th><td><b>No treatment imposed</b>; researchers just observe/measure</td><td><b>Treatments imposed</b> on subjects by researchers</td></tr>
+<tr><th>Conclusion</th><td>Association only (confounding possible)</td><td>Can show <b>causation</b> if random assignment is used</td></tr>
+</table>
+<div class="warn"><b>Common trap</b>Surveys, "followed participants over time", and "people chose to…" are <b>observational</b>. An experiment needs researchers to <i>assign</i> the treatment. Random assignment of ben's vs jerry's house = experiment even though it's a silly setup.</div>
+
+<h3>Experimental units and treatments</h3>
+<ul>
+<li><b>Experimental units:</b> who/what the treatment is imposed on (people, iPhones, plots of land, cows). Called <b>subjects</b> if people.</li>
+<li><b>Treatments:</b> what is done (or not done) to the units; the levels (or combinations of levels) of the explanatory variable(s). A control/"no treatment" group counts as a treatment level.</li>
+</ul>
+
+<h3>Retrospective vs prospective (HW 2.5 #2)</h3>
+<table>
+<tr><th>Prospective</th><td>Investigators <b>follow a sample into the future</b> collecting data (e.g. survey readers now, follow up 12 years later).</td></tr>
+<tr><th>Retrospective</th><td>Investigators <b>examine past data</b> for a sample of individuals.</td></tr>
+</table>
+
+<h2>Why observational studies can't show causation</h2>
+<p>People who choose a behavior differ in other ways. The SAT prep example: students who volunteer for a prep course may be <b>more motivated</b>, so motivation is related to taking the course (explanatory) and also affects SAT score (response) → <b>confounding</b>. Only an experiment with random assignment can balance these other variables across groups.</p>
+
+<div class="ok"><b>Template: "Why can't we conclude cause and effect?"</b>"This is an observational study, so there was no random assignment. <u>[Confounder]</u> is related to <u>[explanatory]</u> and also affects <u>[response]</u>, so we can't tell whether <u>[explanatory]</u> or <u>[confounder]</u> is responsible for the difference in <u>[response]</u>."</div>
+
+<h2>Worked examples</h2>
+<details><summary>Ben and Jerry: metal roof vs shingled roof cell service</summary>
+<p><b>Experiment</b>: a treatment (Ben's house or Jerry's house) was randomly assigned to the 50 employees.</p></details>
+<details><summary>Books at home vs academic success</summary>
+<ul><li>Observational study: no treatment imposed.</li><li>Explanatory: number of books in the home. Response: academic success.</li>
+<li>No cause-and-effect because there was no experiment. Possible confounder: students with more books may study more, and studying leads to more academic success (or family income, parent education).</li></ul></details>
+<details><summary>SAT prep volunteer study (44 students, 1220 vs 1050)</summary>
+<ol>
+<li>Observational study; students volunteered, no treatment imposed.</li>
+<li>Explanatory: whether or not took prep course. Response: SAT score.</li>
+<li>No; motivated students might both take the course and study more anyway.</li>
+<li>Other variables: motivation level, college-bound, time after school, number of AP classes.</li>
+<li>Experiment: randomly choose 100 juniors (experimental units), randomly assign 50 to the prep class and 50 to no prep, then compare SAT scores. Random assignment makes groups roughly equivalent.</li></ol></details>
+
+<h2>Homework 2.5 answers</h2>
+<details><summary>Q1 Chocolate and preeclampsia</summary>
+<ul><li><b>a.</b> Observational: women were interviewed and no treatment imposed.</li>
+<li><b>b.</b> Explanatory: chocolate consumption (regular 1–3 servings/week or not); categorical (or quantitative if measured as servings per week).</li>
+<li><b>c.</b> Response: whether the woman developed preeclampsia; categorical.</li>
+<li><b>d.</b> No. Observational; women who eat chocolate might differ in diet, health or income (confounders).</li></ul></details>
+<details><summary>Q2 Reading and living longer</summary>
+<ul><li><b>a.</b> Prospective: followed participants for 12 years after answering reading questions.</li>
+<li><b>b.</b> Explanatory: whether a person reads books; response: whether they died during the 12 years (mortality).</li>
+<li><b>c.</b> Example: general health, education, income or age.</li>
+<li><b>d.</b> Healthier or more educated people may be more likely to read books.</li>
+<li><b>e.</b> Better health, education or income itself leads to longer life, regardless of reading.</li></ul></details>
+<details><summary>Q3 Mediterranean diet in pregnancy</summary>
+<ul><li><b>a.</b> Experiment: women were randomly assigned to three groups.</li>
+<li><b>b.</b> Random assignment lets us conclude the diet caused higher scores (for the women who participated, since they were volunteers rather than a random sample).</li>
+<li><b>c.</b> About half the kids weren't assessed (nonresponse/attrition). If those who dropped out differ systematically from those who stayed, the groups are no longer comparable and results may be biased.</li></ul></details>
+<details><summary>Q4 "Helper" vs "help" and toy pickup</summary>
+<ul><li><b>a.</b> 51 children → random assignment → Group 1 (17) verb condition, Group 2 (17) noun condition, Group 3 (17) baseline → compare number of toys picked up.</li>
+<li><b>b.</b> Units: the 51 four- and five-year-old children.</li>
+<li><b>c.</b> Treatments: verb ("help"), noun ("be a helper"), baseline wording.</li>
+<li><b>d.</b> Response: number of toys picked up.</li></ul></details>
+<details><summary>Q5 MCQ: speech therapy</summary>
+<p><b>(D)</b>: experiment (the researchers assigned the frequency of services); response variable = number of speech errors.</p></details>
+</main>
+<script src="app.js"></script></body></html>

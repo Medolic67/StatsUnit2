@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sampling Methods (2.1–2.3)</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Sampling Methods</h1>
+<p class="sub">Lessons 2.1 – 2.3: Simple random, stratified, cluster, and systematic samples</p>
+<div class="bar"><button data-expand>Expand all answers</button></div>
+
+<h2 id="srs">2.1 Simple Random Sample (SRS)</h2>
+<h3>Population, sample, census</h3>
+<table>
+<tr><th>Term</th><th>Meaning</th><th>Example</th></tr>
+<tr><td><b>Population</b></td><td>The entire group we want to learn about</td><td>All words in "Crazy in Love"; all 11,000 incoming students</td></tr>
+<tr><td><b>Sample</b></td><td>The part of the population we actually collect data from</td><td>The 5 circled words; the 400 freshmen emailed</td></tr>
+<tr><td><b>Census</b></td><td>Surveys <i>every</i> member of the population</td><td>U.S. Census every 10 years</td></tr>
+<tr><td><b>Parameter</b></td><td>Number describing the population (μ for mean, p for proportion)</td><td>True average word length = 3.53</td></tr>
+<tr><td><b>Statistic</b></td><td>Number describing a sample (x̄, p̂)</td><td>Sample mean x̄ = 5.0</td></tr>
+</table>
+<p><b>Challenges with a census:</b> expensive, time consuming, hard to reach everyone, some measurements destroy the item (e.g. testing every light bulb), population may be too large or constantly changing (deer in a state is the hardest census in the homework).</p>
+
+<h3>Poor sampling methods (lead to bias)</h3>
+<div class="grid">
+<div class="card"><b>Convenience sample</b><br>Choose individuals who are <b>easy to reach</b>. Examples: first 50 students to submit forms, people at coffee shops, the first 10 customers who purchase.</div>
+<div class="card"><b>Voluntary response sample</b><br>Individuals <b>choose themselves</b> to respond. Examples: social media poll, "Rate us 5 stars for a gift card". Tends to attract people with strong opinions.</div>
+</div>
+<div class="warn"><b>Bias</b>Bias means some responses are <b>systematically favored</b> over others. When you are asked about direction, say whether the estimate will be <b>too high or too low</b> and explain <i>why</i> using the context.</div>
+
+<h3>How to take an SRS: Label → Randomize → Select</h3>
+<p>An SRS gives <b>every possible sample of size n an equal chance</b> of being chosen (and every individual an equal chance).</p>
+<ol>
+<li><b>Label</b> every individual (assign numbers 1…N, or write names on slips of paper).</li>
+<li><b>Randomize</b>: use a random number generator (<b>ignore repeats</b>) or shuffle names in a hat.</li>
+<li><b>Select</b> the individuals matching the chosen numbers / slips until you have n.</li>
+</ol>
+<div class="ok"><b>Model answer: SRS of 10 from 91 customers</b>Label the customers 01 to 91. Use a random number generator to generate 10 unique integers between 1 and 91, ignoring any repeats. The customers with those labels form the sample. <br><i>Names in a hat:</i> write each name on an identical slip, mix thoroughly, draw 10 slips without replacement.</div>
+<div class="tip"><b>Why use an SRS?</b>It avoids systematically favoring any group, so the sample is more likely to be representative of the population. This lets us <b>generalize</b> results to the population.</div>
+
+<details><summary>Worked example: Google 5-star gift card</summary>
+<p>Sign says "Rate us 5 stars on Google and get a $10 gift card." Manager finds 92% gave 5 stars.</p>
+<ul>
+<li><b>Type:</b> voluntary response sample.</li>
+<li><b>Why biased:</b> people who responded were motivated to give 5 stars to get the gift card.</li>
+<li><b>Direction:</b> 92% is likely <b>greater</b> than the true percent in the community who think the business deserves 5 stars, because people who like the business (or want the reward) are more likely to respond.</li>
+<li>Surveying the next 10 customers who purchase = <b>convenience sample</b>; those customers made a purchase so likely give <b>higher</b> ratings. <b>Fix:</b> take an SRS.</li>
+</ul></details>
+
+<details><summary>Worked example: Does Beyoncé write her own lyrics?</summary>
+<ul>
+<li>Sample = 5 circled words; population = all words in "Crazy in Love"; x̄ = sample mean word length.</li>
+<li>Eyeballing "random" words (a convenience sample) gave a class dotplot centered too high (≈ 5) → <b>high bias</b>.</li>
+<li>Using a random number generator (SRS) gave dotplot centered near the true mean μ = 3.53 → <b>low bias</b>.</li>
+<li>Destiny's Child average is 3.64 vs 3.53: very close, so <b>not statistically significant</b>; no convincing evidence Beyoncé did not write the lyrics.</li>
+</ul>
+<p class="small">Lesson: people tend to pick longer, more noticeable words by eye, so non-random choices overestimate.</p></details>
+
+<h2 id="strat">2.2 Stratified Random Samples</h2>
+<div class="card"><b>Stratified random sample:</b> split the population into groups called <b>strata</b> whose members share a characteristic (<b>homogeneous</b> groups), then take an <b>SRS from every stratum</b> and combine.<br><b>"Sample some from all groups."</b></div>
+<div class="flow"><span>Population</span><i>→</i><span>Split into strata</span><i>→</i><span>SRS from each stratum</span><i>→</i><span>Combine</span></div>
+
+<h3>Good estimates need low bias AND low variability</h3>
+<table>
+<tr><th></th><th>Low variability (tight)</th><th>High variability (spread out)</th></tr>
+<tr><th>Low bias (centered on truth)</th><td>Best: accurate and consistent</td><td>Centered on truth but unreliable one-to-one</td></tr>
+<tr><th>High bias (off-center)</th><td>Consistently wrong</td><td>Worst</td></tr>
+</table>
+<ul>
+<li><b>Bias:</b> the center of the sampling distribution is not at the true parameter. "Low bias" = estimates are, on average, close to the true value.</li>
+<li><b>Variability:</b> how spread out the estimates are from sample to sample. "Low variability" = estimates are close to each other.</li>
+<li>A bigger sample reduces <b>variability</b> but <b>does not fix bias</b>.</li>
+<li>Stratifying reduces <b>variability</b> when strata differ on the response; it does not remove bias on its own.</li>
+</ul>
+
+<div class="tip"><b>Choosing strata</b>Pick the strata variable that has the <b>largest effect on the response</b>. Example: front row fans enjoy a concert more than back row fans → stratify by <b>row</b> (not column).</div>
+
+<h3>With vs without replacement</h3>
+<p>Surveys sample <b>without replacement</b>: you would not survey the same person twice. (This is why you "ignore repeats" with a random number generator.)</p>
+
+<details><summary>Model answer: stratified sample of 100 students using grade level</summary>
+<ol><li>Split the student body into 4 groups by grade level.</li><li>Number the 9th graders 1 to N.</li><li>Use a random number generator to select 25 unique numbers; pick the matching 9th graders.</li><li>Repeat for each grade level.</li></ol>
+<p><b>Why better than an SRS:</b> grade levels may differ in opinion (e.g. 9th graders for the hall pass, 12th graders against). Stratifying guarantees every grade is represented and has <b>lower variability</b>.</p>
+<p><b>Proportional allocation:</b> if stratum sizes differ, sample sizes should be proportional. Restaurant: 120 hourly + 30 managers, n = 20 → 120/150 × 20 = <b>16 hourly</b>, 30/150 × 20 = <b>4 salaried</b>.</p></details>
+
+<details><summary>Taylor Swift Day 1 (stratify by row vs column vs SRS)</summary>
+<p>VIP section: 5 rows × 10 columns, sample of 10 fans. All three methods had a center near the true mean (78.4), i.e. low bias. Stratifying by <b>row</b> gave the lowest variability (estimates close together) because enjoyment varies a lot by row (distance from stage) but not by column. <b>Best method: stratify by row.</b></p></details>
+
+<div class="warn"><b>MCQ trap (2.2 HW #6)</b>In a stratified sample, it is <u>not</u> true that every possible sample of size n is equally likely. That property belongs only to an SRS. (Samples with 0 people from some stratum are impossible.)</div>
+
+<h2 id="cluster">2.3 Cluster &amp; Systematic Samples</h2>
+<div class="grid">
+<div class="card"><b>Cluster random sample</b><br>Split population into <b>clusters</b> that are <b>heterogeneous</b> (each looks like a mini-population). Randomly choose <b>some clusters</b> and survey <b>every individual</b> in them. <b>"Sample all from some groups."</b><br><b>Advantage:</b> quick, cheap, convenient (survey a whole floor/classroom).</div>
+<div class="card"><b>Systematic random sample</b><br>Choose a <b>random starting point</b> then pick <b>every k-th</b> individual (equal intervals). k = N / n.<br><b>Advantage:</b> spreads the sample evenly across the whole list/location, easy to carry out.</div>
+</div>
+
+<h3>Stratified vs. cluster</h3>
+<table>
+<tr><th></th><th>Stratified</th><th>Cluster</th></tr>
+<tr><th>Groups</th><td>Homogeneous (similar inside, different from each other)</td><td>Heterogeneous (each is a mini-population)</td></tr>
+<tr><th>Which groups used?</th><td>All groups</td><td>Only some groups</td></tr>
+<tr><th>Within a group</th><td>SRS (some individuals)</td><td>Everyone</td></tr>
+<tr><th>Main benefit</th><td>Lower variability, guaranteed representation</td><td>Convenience, lower cost</td></tr>
+</table>
+<p><b>Same:</b> both split the population into groups first, and both use random selection (of individuals or of groups).</p>
+<div class="warn"><b>Choosing clusters</b>Good clusters are <b>diverse</b>. High school example: English classes are grouped by grade (homogeneous), and seniors are more likely to have a license → bad clusters. Physical education classes mix grade levels → better clusters.</div>
+
+<details><summary>Hotel example (500 rooms, sample of 50)</summary>
+<ul>
+<li><b>Stratified:</b> Strata = ocean view (rooms 1–250) and street view. Use RNG to choose 25 unique rooms from each. (Could also stratify by floor.)</li>
+<li><b>Cluster:</b> Each floor is a cluster. Label floors 1–10, use RNG to pick one floor, survey all 50 rooms on it.</li>
+<li><b>Systematic:</b> Label rooms 1–500, RNG for a start between 1 and 10, then every 10th room until 50.</li>
+<li><b>Benefits:</b> Stratified = guaranteed ocean and street rooms, more precise. Cluster = easy and fast. Systematic = rooms from all floors.</li>
+</ul></details>
+
+<details><summary>Taylor Swift Day 2 (cluster by row, cluster by column, systematic)</summary>
+<ul>
+<li><b>Method 1: rows as clusters.</b> Rows are homogeneous in enjoyment (front high, back low) → bad clusters. Results had high variability: front row overestimates, back row underestimates (mean ≈ 87 for the front row).</li>
+<li><b>Method 2: columns as clusters.</b> Each column spans all rows → heterogeneous clusters. Low bias and lower variability (mean ≈ 79.2).</li>
+<li><b>Method 3: systematic</b> (random start, every 8th seat). Low bias, spread across all rows (mean ≈ 74.6 for one sample).</li>
+<li>Best: Method 2 (low bias, lower variability).</li>
+</ul></details>
+
+<details><summary>Homework: MLB 780 players, Zillow, MCQs</summary>
+<ul>
+<li><b>SRS of 100:</b> label 1–780, RNG for 100 unique numbers.</li>
+<li><b>Stratified of 90:</b> strata = 30 teams, SRS of 3 players from each roster (30 × 3 = 90).</li>
+<li><b>Cluster of 78:</b> each team is a cluster (26 players); randomly choose 3 teams (3 × 26 = 78), take all players.</li>
+<li><b>Systematic of 78:</b> k = 780/78 = 10. Pick random start 1–10, then every 10th player.</li>
+<li><b>Zillow:</b> Option 1 = stratified (neighborhoods as strata); advantage: every neighborhood represented, lower variability. Option 2 = cluster; advantage: cheaper, inspector travels less. Option 1 likely gives better estimates.</li>
+<li><b>MCQ town split by river, every 5th house:</b> systematic random sample (C).</li>
+<li><b>MCQ freshmen orientation groups, all surveyed in 3 random groups:</b> cluster random sample because <i>all</i> students in the chosen groups were surveyed (D).</li>
+</ul></details>
+
+<h3>Sampling cheat table</h3>
+<table>
+<tr><th>Method</th><th>Procedure</th><th>Every sample equally likely?</th></tr>
+<tr><td>SRS</td><td>Label, randomize, select</td><td>Yes</td></tr>
+<tr><td>Stratified</td><td>SRS from each homogeneous stratum</td><td>No</td></tr>
+<tr><td>Cluster</td><td>SRS of clusters, census of each chosen cluster</td><td>No</td></tr>
+<tr><td>Systematic</td><td>Random start, every k-th</td><td>No</td></tr>
+<tr><td>Convenience / voluntary</td><td>Not random</td><td>No (biased)</td></tr>
+</table>
+</main>
+<script src="app.js"></script></body></html>

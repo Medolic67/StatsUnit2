@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inference and Scope (2.8–2.9)</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Inference and Experiments, Scope of Inference</h1>
+<p class="sub">Lessons 2.8 – 2.9: Simulation, statistical significance, and what we can conclude</p>
+<div class="bar"><button data-expand>Expand all answers</button></div>
+
+<h2 id="sig">2.8 Statistical significance</h2>
+<div class="card"><b>Statistically significant:</b> the results of an experiment are <b>unlikely (less than 5%) to happen purely by chance</b> (due only to random assignment). If a result is statistically significant, we have <b>convincing evidence</b> that the treatment caused the difference.</div>
+
+<h3>The simulation logic (assuming "no treatment effect")</h3>
+<ol>
+<li><b>Assume the treatments have no effect</b> (e.g. name doesn't affect rating, formats A and B equally effective, someone is just guessing at 50%).</li>
+<li><b>Simulate</b> the random assignment many times (index cards shuffled into two piles; chips in a bag; random number generator).</li>
+<li>For each trial, record the <b>statistic</b> (difference of means, difference of percents, or percent correct) → <b>each dot on the dotplot is one simulated trial/random assignment</b>.</li>
+<li>Locate the <b>actual result</b> from the experiment on the dotplot.</li>
+<li>Find the <b>percent of dots as or more extreme</b> than the actual result.
+  <ul><li><b>&lt; 5%</b> → unlikely by chance alone → <b>statistically significant</b> → convincing evidence of an effect.</li>
+  <li><b>≥ 5%</b> → could easily happen by chance → <b>not statistically significant</b> → not convincing evidence.</li></ul></li>
+</ol>
+
+<div class="ok"><b>Template: interpret the percent</b>"Assuming <u>[no effect, e.g. name does not affect ratings]</u>, there is a <u>[x]%</u> chance of getting a difference of <u>[means/percents]</u> of <u>[value]</u> or more (as extreme as ours) purely by chance due to random assignment."</div>
+<div class="ok"><b>Template: conclusion</b>"Because <u>[x]%</u> is <u>[less / more]</u> than 5%, the result <u>[is / is not]</u> statistically significant. We <u>[do / do not]</u> have convincing evidence that <u>[treatment]</u> causes <u>[change in response]</u>."</div>
+<div class="warn"><b>Don't say</b>"proves" or "the treatment definitely works". Say "convincing evidence". Also: "not statistically significant" does <i>not</i> prove there is no effect; it means we don't have enough evidence.</div>
+
+<h3>Direction: which tail?</h3>
+<p>Count dots in the direction of the research claim (e.g. "better than guessing" → 56% or more; "John rated higher" → difference ≥ observed).</p>
+
+<h3>Sample size and variability</h3>
+<p>Larger samples → simulated results cluster more tightly around the "no effect" value → the same observed difference becomes <b>more convincing</b>. A larger observed difference is also more convincing.</p>
+
+<h3>Worked examples</h3>
+<details><summary>Yelp ad formats (A/B testing): 42% vs 38%</summary>
+<ul><li>Difference = 42% − 38% = <b>4%</b>.</li>
+<li>Before simulating: difference is small, so likely not significant.</li>
+<li>Simulation (100 trials, assuming formats equally effective): 42 of 100 dots were at 4% or more → 42% chance by chance alone → <b>not</b> statistically significant. No convincing evidence one format gets more clicks.</li></ul></details>
+<details><summary>"What's in a name?" John vs Jennifer resumé</summary>
+<ul><li>Mean John = 5.33, mean Jennifer = 4.07, difference = 1.26.</li>
+<li>Simulation: shuffle all ratings into 2 piles (assuming name doesn't affect the rating). Each dot = one simulated random assignment and its difference of means.</li>
+<li>In the class dotplot 1 of 15 dots were ≥ the class result = 0.067 = <b>6.7%</b>.</li>
+<li>Interpretation: assuming name doesn't affect ratings, there's a 6.7% chance of getting a difference of means ≥ 1.26 purely by chance.</li>
+<li>Conclusion: 6.7% is slightly <b>above</b> 5%, so by the strict rule it is <i>not</i> statistically significant (borderline) and the result could plausibly happen by chance. (If the percent had been below 5%, it would be significant.)</li>
+<li>Yale study (127 faculty): difference 3.78 − 2.93 = 0.85 is <b>smaller</b> than the class's 1.26 (less convincing on that measure), but the <b>sample size is much larger</b> (more convincing). A larger sample lowers variability, so the smaller difference can still be significant.</li></ul></details>
+<details><summary>Ring test for predicting a baby's sex (HW 2.8 #2)</summary>
+<ul><li><b>a.</b> One trial of the simulation (100 guesses with 50% chance of being right) in which 61% of the guesses were correct.</li>
+<li><b>b.</b> Count dots at 56% or higher and divide by 200 (roughly 14% for 100 women; verify against the dotplot).</li>
+<li><b>c.</b> No. That percent is well above 5%, so 56% correct is not unusual from guessing. Not convincing evidence the ring test beats guessing.</li>
+<li><b>d.</b> A result far out in the tail of the simulation, such as 62–65% or more, where fewer than 5% of dots lie.</li>
+<li><b>e.</b> <b>More convinced</b>: with n = 500, simulated percents vary much less, so 56% would be well beyond the typical guessing results (smaller chance).</li></ul></details>
+<details><summary>Microsoft 4-day week (HW 2.8 #1)</summary>
+<ul><li><b>a.</b> The increase in productivity is unlikely to have occurred by chance alone (if the 4-day week had no effect).</li>
+<li><b>b.</b> Add a <b>control group</b> and <b>random assignment</b>: randomly assign some employees to the 4-day week and others the regular week at the same time. Challenging because of fairness (some employees get less work for full pay), logistics, and the difficulty of different schedules within teams.</li></ul></details>
+<details><summary>Peanut allergy (HW 2.8 #3) and exercise (HW 2.8 #4)</summary>
+<ul><li><b>Peanuts:</b> (a) completely randomized design with two treatments (avoid vs consume peanuts). (b) Explanatory: peanut exposure (avoid vs consume); response: whether the child developed a peanut allergy. (c) 17.3% − 3.2% = <b>14.1 percentage points</b>. (d) Yes: the probability (&lt;0.01%) is far below 5%, so the difference is statistically significant → convincing evidence early peanut exposure reduces the chance of peanut allergy (in children like those in the study).</li>
+<li><b>Exercise:</b> (a) treatments: aerobic, resistance, combination, no exercise. (b) No-exercise (control) group provides a baseline. (c) The difference in CVD risk profile is unlikely to be due to chance alone; convincing evidence that aerobic and combo programs lead to better CVD risk profiles than no exercise. (d) Difference in the resistance-only group could plausibly be due to chance; no convincing evidence it changes risk profile.</li></ul></details>
+<details><summary>MCQs 2.8 #5, #6</summary>
+<ul><li><b>#5 (porcupine stakes):</b> <b>(D)</b>: the difference must be statistically significant. (A is wrong; random assignment allows causation. B/C are wrong: any difference could be chance; not all stakes need to differ.)</li>
+<li><b>#6 (webinar bias):</b> Simulation histogram counts for 0–9 blue chips: 41, 133, 224, 240, 184, 104, 41, 24, 7, 2. At least 6 blue: 41 + 24 + 7 + 2 = 74 of 1000 = 7.4%, which is more than 5% → <b>(C)</b> not convincing.</li></ul></details>
+
+<h2 id="scope">2.9 Scope of inference</h2>
+<div class="grid">
+<div class="card"><b>Random sample → generalize</b><br>A random sample allows us to <b>generalize our conclusions to the population</b> from which we sampled.</div>
+<div class="card"><b>Random assignment → causation</b><br>Random assignment allows us to conclude that a treatment <b>causes</b> changes in the response variable.</div>
+</div>
+
+<table>
+<tr><th>Random sample?</th><th>Random assignment?</th><th>Conclusion</th></tr>
+<tr><td>Yes</td><td>Yes</td><td>Causation, for the <b>whole population</b> sampled</td></tr>
+<tr><td>Yes</td><td>No</td><td>Association (not causation), for the <b>whole population</b> sampled</td></tr>
+<tr><td>No</td><td>Yes</td><td>Causation, but only for the <b>subjects in the study</b> (or like them)</td></tr>
+<tr><td>No</td><td>No</td><td>Association only, for the <b>sample only</b></td></tr>
+</table>
+
+<div class="ok"><b>Template: scope of inference answer</b>
+Step 1: "Was a random sample used? <b>[yes/no]</b>" → "We can generalize to <u>[exact population]</u>" or "we cannot generalize beyond <u>[the sample]</u>."<br>
+Step 2: "Was random assignment used? <b>[yes/no]</b>" → "We can conclude <u>[explanatory]</u> <b>causes</b> a change in <u>[response]</u>" or "we can only conclude an <b>association</b>."</div>
+<div class="warn"><b>Be precise about the population</b>It's the group the sample was randomly drawn from, not a larger group you wish it represented: "all brand new iPhones <u>from this store</u>", "all wrestlers <u>at Jefferson High School</u>", not "all athletes".</div>
+
+<h3>Sample vs population quick reference</h3>
+<table>
+<tr><th>Sample</th><th>Generalize to</th></tr>
+<tr><td>Random sample of 100 teachers in U.S.</td><td>All U.S. teachers</td></tr>
+<tr><td>Random sample of 100 high school teachers in Michigan</td><td>All Michigan high school teachers</td></tr>
+<tr><td>Random sample of 100 HS teachers at an education conference</td><td>All high school teachers <b>at that conference</b></td></tr>
+<tr><td>Voluntary response sample of 100 elementary teachers in Michigan</td><td>No generalization (only the 100 teachers who responded)</td></tr>
+<tr><td>Convenience sample of 100 HS teachers at a conference</td><td>No generalization (only those 100 teachers)</td></tr>
+</table>
+
+<h3>Card sort: SAT prep (Part 2)</h3>
+<table>
+<tr><th>#</th><th>Design</th><th>Random sample?</th><th>Random assignment?</th><th>Conclusion</th></tr>
+<tr><td>1</td><td>One senior class, asked if took prep</td><td>No</td><td>No</td><td><b>C.</b> Students in this class: association</td></tr>
+<tr><td>2</td><td>Random sample of seniors, asked</td><td>Yes</td><td>No</td><td><b>E.</b> All seniors at your school: association</td></tr>
+<tr><td>3</td><td>Random sample of SAT-takers, asked</td><td>Yes</td><td>No</td><td><b>A.</b> All students who have taken the SAT at your school: association</td></tr>
+<tr><td>4</td><td>One senior class, randomly assign prep</td><td>No</td><td>Yes</td><td><b>D.</b> Students in this class: prep causes higher scores</td></tr>
+<tr><td>5</td><td>Random sample of seniors, randomly assign</td><td>Yes</td><td>Yes</td><td><b>F.</b> All seniors at your school: causes</td></tr>
+<tr><td>6</td><td>Random sample of SAT-takers, randomly assign</td><td>Yes</td><td>Yes</td><td><b>B.</b> All students who have taken the SAT at your school: causes</td></tr>
+</table>
+
+<details><summary>Check Your Understanding: iPhone brightness</summary>
+<ul><li>Experiment (random assignment to low or high brightness).</li><li>Explanatory: screen brightness (low/high); response: battery life.</li><li>Random sample from this store: yes. Random assignment: yes.</li>
+<li><b>Conclusion:</b> For all brand new iPhones from this store, low screen brightness <b>causes</b> increased battery life.</li></ul></details>
+<details><summary>HW 2.9 answers</summary>
+<ul>
+<li><b>Q1 Spotify:</b> (a) Label employees 1–9000, RNG for 300 unique numbers. (b) The sample is likely representative of all employees, avoiding bias, so results can be generalized.</li>
+<li><b>Q2 teachers:</b> (a) all U.S. teachers (b) all high school teachers in Michigan (c) all high school teachers at that conference (d) only the 100 volunteer teachers (e) only those 100 teachers.</li>
+<li><b>Q3 social media:</b> (a) observational (b) No; confounders (loneliness, sleep) could be related to both. (c) Label the 80 teens 1–80, RNG picks 40 unique numbers → 5+ hours; the rest → ≤1 hour.</li>
+<li><b>Q4 Wisconsin:</b> (a) Explanatory: volunteering (motivation); response: mortality. (b) Random sample: yes; random assignment: no. (c) For all Wisconsin people, an association between volunteering and lower mortality, not causation.</li>
+<li><b>Q5 astronauts:</b> Random assignment yes, random sample no (volunteers). Conclude caffeine + light caused higher scores for those 16 volunteers; cannot generalize to all astronauts.</li>
+<li><b>Q6 MCQ:</b> random sample of wrestlers at Jefferson → all wrestlers at Jefferson High School <b>(C)</b>.</li>
+<li><b>Q7 MCQ:</b> iguanas with random assignment → reasonable to conclude causation <b>(D)</b>.</li>
+</ul></details>
+</main>
+<script src="app.js"></script></body></html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Designing Experiments (2.6–2.7)</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Designing Experiments</h1>
+<p class="sub">Lessons 2.6 – 2.7: Principles, random assignment, blinding, and experimental designs</p>
+<div class="bar"><button data-expand>Expand all answers</button></div>
+
+<h2 id="design">2.6 Well-designed experiments</h2>
+<h3>The four principles</h3>
+<table>
+<tr><th>Principle</th><th>Meaning</th><th>Why</th></tr>
+<tr><td><b>1. Comparison</b></td><td>Use <b>2 or more treatments</b> (often including a control or placebo group)</td><td>Baseline to compare against</td></tr>
+<tr><td><b>2. Random assignment</b></td><td>Use chance to assign units to treatment groups</td><td>Makes groups roughly equivalent → lets us show <b>causation</b></td></tr>
+<tr><td><b>3. Replication</b></td><td><b>More than 1</b> unit in each treatment group</td><td>Reduces the role of chance; shows the effect isn't a fluke</td></tr>
+<tr><td><b>4. Control</b></td><td>Keep other variables <b>constant</b> for all groups (same conditions, same teacher, same time)</td><td>Prevents confounding</td></tr>
+</table>
+<div class="tip"><b>Control group vs control principle</b>A <b>control group</b> receives no treatment or a placebo and gives baseline data. The <b>control principle</b> means keeping everything else equal. Say which one you mean.</div>
+
+<h3>Random assignment: Label → Randomize → Assign</h3>
+<div class="ok"><b>Model: 1200 cows, 3 treatments (eyes, crosses, nothing)</b>Label the cows 1 to 1200. Use a random number generator to get 400 unique numbers; those cows get the eyes. Generate 400 different numbers; those cows get crosses. All remaining cows get no marks.<br><b>Purpose:</b> creates roughly equivalent groups so we can determine whether the treatments <u>cause</u> deaths to decrease.</div>
+<ul>
+<li>Two groups, 180 students: label 1–180, RNG picks 90 unique numbers for the review sheet, the rest study alone (or names in a hat).</li>
+<li>Always say <b>unique</b> / ignore repeats.</li>
+</ul>
+
+<h3>Placebo and blinding</h3>
+<table>
+<tr><th>Placebo effect</th><td>When a fake treatment (placebo) works because people <i>believe</i> they got a real one.</td></tr>
+<tr><th>Single-blind</th><td><b>Subjects</b> don't know which treatment they're getting <i>or</i> the evaluators/experimenters don't know.</td></tr>
+<tr><th>Double-blind</th><td><b>Both</b> subjects and the people interacting with them/measuring the response don't know.</td></tr>
+</table>
+<p><b>Importance of blinding:</b> prevents expectations from changing behavior or how results are recorded (bias). <b>Importance of placebo:</b> lets us separate the real effect of the medicine from the effect of just believing in treatment.</p>
+
+<details><summary>Worked: cows with eyes painted on their rears</summary>
+<ul><li>Control group (nothing painted) provides baseline data to compare to: 15 deaths vs 4 (crosses) vs 0 (eyes).</li>
+<li>Outline: 1200 cows → random assignment → Group 1 (400) eyes / Group 2 (400) crosses / Group 3 (400) none → compare number of deaths.</li></ul></details>
+<details><summary>Worked: What's wrong with these experiments?</summary>
+<ul>
+<li><b>Mr. Wilcox beard oil:</b> no comparison/control (don't know growth without oil), only one month (no replication). Fix: measure a month without oil as control; do multiple months/subjects.</li>
+<li><b>Track coach:</b> athletes chose their workout → observational study. Fix: number athletes 1–120, RNG picks 60 unique numbers for the strength workout, others relaxed. Random assignment lets us show the workout <b>caused</b> faster times.</li>
+<li><b>Smart pills:</b> students knew which treatment they got. Fix: no labels on pills (single blind); double-blind if the teacher also doesn't know who got which.</li></ul></details>
+<details><summary>HW 2.6 answers</summary>
+<ul>
+<li><b>Q1 MIT:</b> Comparison: four groups (labels before, during, after, none). Random assignment: participants randomly assigned to the four groups. Replication: 2,683 participants spread among the groups. Control: everyone read the same 36 headlines (18 true, 18 false); only the timing of the tag varied.</li>
+<li><b>Q2:</b> (a) Random assignment makes the groups roughly equivalent so differences in test results can be attributed to the review sheet. (b) Label 180 students, RNG for 90 unique numbers → review sheet; rest study on their own.</li>
+<li><b>Q3:</b> (a) Double-blind: neither the participants nor the evaluators knew who got omalizumab; placebo-controlled: a placebo injection was compared. (b) Prevents expectations from affecting reported symptoms or evaluation. (c) Provides a baseline to separate real drug effects from the placebo effect.</li>
+<li><b>Q4 IBS:</b> (a) Compare to those who got no pill but the same quality of interaction, to isolate effect of the pill itself. (b) Sugar pill had no active ingredient but improved symptoms compared to no pill → placebo effect.</li>
+<li><b>Q5 math classes:</b> Missing <b>comparison</b> (all 6 classes got the new method) and <b>random assignment</b>. Replication (6 classes) and control (same level, same teacher) are met. Fix: randomly assign 3 classes (or students) to the new method and 3 to the usual method, then compare final grades.</li>
+<li><b>Q6 MCQ:</b> patient has placebo (blind) and doctor unaware → both blind <b>(A)</b>. <b>Q7 MCQ:</b> no control group <b>(B)</b>.</li>
+</ul></details>
+
+<h2 id="blocks">2.7 Selecting an experimental design</h2>
+<table>
+<tr><th>Design</th><th>How it works</th><th>When to use</th></tr>
+<tr><td><b>Completely randomized design (CRD)</b></td><td>Randomly assign <b>all</b> units to treatments</td><td>No obvious variable that affects the response</td></tr>
+<tr><td><b>Randomized block design</b></td><td>Separate units into <b>blocks</b> (groups of similar units), then <b>randomly assign treatments within each block</b>. Compare within blocks, then combine.</td><td>A variable (age, grade level, location) is known to affect the response</td></tr>
+<tr><td><b>Matched pairs design</b></td><td>A special block of size 2. Either <b>pair similar subjects</b> and randomly assign treatments within each pair, <b>or</b> each subject gets <b>both</b> treatments in random order.</td><td>Natural pairs or before/after / two sides of body</td></tr>
+</table>
+<div class="warn"><b>Block ≠ strata</b>Blocks are used in <b>experiments</b> (randomly assign <i>treatments</i> within blocks). Strata are used in <b>sampling</b> (randomly select <i>individuals</i> from each stratum). Notes: "*not strata*".</div>
+
+<h3>Why block?</h3>
+<ul>
+<li>Controls a <b>confounding</b> variable by making sure every treatment appears within each type of unit.</li>
+<li>Within each block there is <b>lower variability</b> in the response, making it <b>easier to determine</b> which treatment is most effective.</li>
+<li>Choose blocks using the variable that has the <b>largest effect on the response</b>.</li>
+<li>Purpose of random assignment within each block: balance out any remaining unknown variables so groups are comparable within the block.</li>
+<li>Matched pairs advantage over CRD: controls for subject-to-subject variability since each subject (or a very similar pair) serves as its own comparison.</li>
+</ul>
+
+<h3>Outline diagrams</h3>
+<p><b>CRD (50 students, 2 prep types)</b></p>
+<div class="flow"><span>50 students</span><i>→</i><span>Random assignment</span><i>→</i><span>Group 1 (25): online prep</span><i>/</i><span>Group 2 (25): classroom prep</span><i>→</i><span>Compare SAT scores</span></div>
+<p><b>Randomized block (blocks: 20 seniors, 30 juniors)</b></p>
+<div class="flow"><span>20 seniors</span><i>→</i><span>Random assignment: 10 online / 10 teacher</span><i>→</i><span>Compare SAT within block</span></div>
+<div class="flow"><span>30 juniors</span><i>→</i><span>Random assignment: 15 online / 15 teacher</span><i>→</i><span>Compare SAT within block</span></div>
+<div class="flow"><span>Then combine and compare the results from both blocks</span></div>
+<p><b>Matched pairs (rank 50 by GPA)</b>: Pair the top two students, next two, etc. (25 pairs). Flip a coin for each pair; heads → first student gets online course, tails → teacher course.</p>
+<p><b>Randomized block for 3 YouTube ads, 300 users, blocked by age:</b> 150 older → randomly assign 50 each to Ad 1, Ad 2, Ad 3; 150 younger → same. Compare effectiveness within each block, then combine. (Ads affect young people differently, so age is the block.)</p>
+
+<details><summary>HW 2.7 answers</summary>
+<ul>
+<li><b>Q1:</b> (a) In a CRD, all units are randomly assigned together; in a block design, units are first grouped into blocks and random assignment occurs within each block. (b) Each pair is a block (of size 2) with randomization of treatments within the pair.</li>
+<li><b>Q2 Alaska teachers:</b> (a) Label teachers 1–300, RNG for 150 unique numbers → bonus; others no bonus; compare retention rates. (b) Elementary, middle, and high school teachers may have different retention rates (school level is related to getting the bonus by chance and affects retention). (c) Randomized block design with blocks elementary / middle / high. (d) Within each group of 100, label 1–100 and RNG for 50 unique numbers → bonus; rest no bonus.</li>
+<li><b>Q3 shin guards:</b> (a) Units: the 20 players (or each leg); treatments: new vs standard shin guard; response: comfort rating 1–10. (b) Matched pairs design: each player tries both, one on each leg (each player is a block of size 2). (c) For each player flip a coin: heads, new guard on left shin and standard on right; tails reverse. (d) Controls for differences between players (variability), so comparisons are more precise.</li>
+<li><b>Q4 physical therapist:</b> (a) Block by age: age is more likely to affect joint pain and mobility; appointment time is not related to response. (b) Reduces variability and controls age as a confounder, making it easier to detect differences between exercises.</li>
+<li><b>Q5 irrigation:</b> (a) Block so that plots in a block are similar. Because the stream could make nearby plots wetter, the blocks should separate plots next to the stream from those far from it (Option 1 in the diagram, if the stream runs along one side). (b) Block A (plots near stream): randomly assign 3 plots to type 1 and 3 to type 2; Block B (plots away from stream): same. Compare growth within each block, then combine. (c) Random assignment within each block balances the remaining differences among plots (soil, sunlight).</li>
+<li><b>Q6 MCQ:</b> light treatments randomly assigned to flights within each block <b>(B)</b>. <b>Q7 MCQ:</b> each pilot received both breakfasts in random order → experiment with matched pairs design <b>(C)</b>.</li>
+</ul></details>
+</main>
+<script src="app.js"></script></body></html>

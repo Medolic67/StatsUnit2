@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vocabulary Bank</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Vocabulary Bank</h1>
+<p class="sub">Search the list or flip through flashcards.</p>
+<div class="bar">
+<input type="search" id="q" placeholder="Search terms…" style="flex:1;min-width:200px">
+<select id="lesson"><option value="">All lessons</option></select>
+<button id="mode" class="alt">Switch to flashcards</button>
+</div>
+<div id="list"></div>
+<div id="cards" hidden>
+<div class="fc" id="fc"><div><div class="f" id="front"></div><div class="b" id="back"></div></div></div>
+<div class="bar"><button class="alt" id="prev">◀ Prev</button><button id="shuf" class="alt">Shuffle</button><button class="alt" id="next">Next ▶</button><span class="small" id="count"></span></div>
+<p class="small">Click the card to flip.</p>
+</div>
+</main>
+<script src="app.js"></script>
+<script>
+var V=[
+["2.1","Population","The entire group of individuals we want to learn about."],
+["2.1","Sample","The part of the population from which data are actually collected."],
+["2.1","Census","A survey that collects data from every member of the population."],
+["2.1","Parameter","A number that describes a population (e.g. μ, p)."],
+["2.1","Statistic","A number that describes a sample (e.g. x̄, p̂); used to estimate a parameter."],
+["2.1","Bias","A systematic tendency for a sampling method or study to favor certain responses/outcomes over others."],
+["2.1","Convenience sample","Sample of individuals who are easy to reach; usually biased."],
+["2.1","Voluntary response sample","Individuals choose themselves to participate; usually over-represents strong opinions."],
+["2.1","Simple random sample (SRS)","Every possible sample of size n has an equal chance of being selected. Label, randomize, select."],
+["2.1","Random number generator","Tool for selecting unique random labels; repeats are ignored when sampling without replacement."],
+["2.2","Stratified random sample","Split the population into homogeneous groups (strata), take an SRS from every stratum."],
+["2.2","Stratum / strata","A group of individuals who share a characteristic (e.g. grade level)."],
+["2.2","Homogeneous","Similar; the individuals in a stratum are alike on some characteristic."],
+["2.2","Variability","How spread out estimates are from sample to sample."],
+["2.2","Low bias","Estimates are centered at (close on average to) the true parameter value."],
+["2.2","With / without replacement","Whether an individual can be selected more than once. Surveys use without replacement."],
+["2.3","Cluster random sample","Split the population into heterogeneous clusters, randomly select some clusters and survey every individual in them."],
+["2.3","Heterogeneous","Diverse; each cluster looks like a small version of the whole population."],
+["2.3","Systematic random sample","Select a random starting point, then every k-th individual (equal intervals)."],
+["2.4","Undercoverage","Some individuals in the population are less likely to be chosen (e.g. calling landlines, surveying homeowners)."],
+["2.4","Nonresponse","Chosen individuals can't be reached or refuse to answer."],
+["2.4","Response bias","Problems in the data collection process or instrument (lying, leading wording, interviewer presence)."],
+["2.5","Observational study","Researchers observe/measure but impose no treatment; can show association only."],
+["2.5","Experiment","Researchers impose treatments on experimental units; can show causation if randomly assigned."],
+["2.5","Explanatory variable (factor)","The variable that may explain or cause changes in the response."],
+["2.5","Response variable","The outcome measured to see the effect of the explanatory variable."],
+["2.5","Confounding variable","Related to the explanatory variable and influences the response, so effects can't be separated."],
+["2.5","Extraneous variable","Any other variable that could affect the response."],
+["2.5","Experimental unit","The individual (person, object, plot, animal) the treatment is imposed on. Called subjects if people."],
+["2.5","Treatment","What is done (or not done) to the experimental units; levels or combinations of levels of the explanatory variable(s)."],
+["2.5","Retrospective study","Investigators examine past data for a sample."],
+["2.5","Prospective study","Investigators follow a sample into the future collecting data."],
+["2.6","Comparison","Principle: use two or more treatments."],
+["2.6","Random assignment","Using chance to assign units to treatments: label, randomize, assign. Allows conclusions of causation."],
+["2.6","Replication","Principle: more than one experimental unit in each treatment group."],
+["2.6","Control (principle)","Keep other variables constant across treatment groups."],
+["2.6","Control group","Group that receives no treatment or a placebo, giving baseline data."],
+["2.6","Placebo","A fake treatment with no active ingredient."],
+["2.6","Placebo effect","When a fake treatment works because subjects believe in it."],
+["2.6","Single-blind","Either the subjects or the evaluators don't know which treatment is given."],
+["2.6","Double-blind","Neither subjects nor the researchers who interact with them/measure results know who gets which treatment."],
+["2.7","Completely randomized design","All experimental units are randomly assigned to treatments."],
+["2.7","Block","A group of experimental units that are similar (on a variable that affects the response)."],
+["2.7","Randomized block design","Separate units into blocks, then randomly assign treatments within each block."],
+["2.7","Matched pairs design","A block of size 2: pair similar subjects (random treatment within each pair) or give each subject both treatments in random order."],
+["2.8","Statistically significant","Results unlikely (less than 5%) to occur purely by chance; convincing evidence that the treatment caused the difference."],
+["2.8","Simulation","Repeating a random process many times assuming no effect to see what results happen by chance."],
+["2.8","A/B testing","Randomly assigning users to one of two versions (A or B) to see which performs better."],
+["2.8","Difference of means / percents","The statistic used to compare two groups (group 1 − group 2)."],
+["2.9","Scope of inference","Who we can generalize to (random sample) and whether we can conclude causation (random assignment)."],
+["2.9","Generalize","Extend conclusions to the population from which the random sample was taken."],
+["2.9","Association","Variables are related, but one may not cause the other."],
+["2.9","Causation","A change in the explanatory variable results in a change in the response; requires random assignment."]
+];
+var lessons=[];V.forEach(function(v){if(lessons.indexOf(v[0])<0)lessons.push(v[0]);});
+var sel=document.getElementById("lesson");
+lessons.forEach(function(l){var o=document.createElement("option");o.value=l;o.textContent="Lesson "+l;sel.appendChild(o);});
+var q=document.getElementById("q"),list=document.getElementById("list");
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function filtered(){var t=q.value.toLowerCase(),l=sel.value;return V.filter(function(v){return (!l||v[0]===l)&&(!t||(v[1]+" "+v[2]).toLowerCase().indexOf(t)>=0);});}
+function render(){var f=filtered();
+ list.innerHTML='<table><tr><th>Lesson</th><th>Term</th><th>Definition</th></tr>'+f.map(function(v){return '<tr><td>'+v[0]+'</td><td><b>'+esc(v[1])+'</b></td><td>'+esc(v[2])+'</td></tr>';}).join("")+'</table>';
+ deck=f.slice();i=0;show();}
+var deck=V.slice(),i=0,fc=document.getElementById("fc");
+function show(){fc.classList.remove("flip");
+ if(!deck.length){document.getElementById("front").textContent="No terms";document.getElementById("back").textContent="";document.getElementById("count").textContent="";return;}
+ var d=deck[i];document.getElementById("front").textContent=d[1];document.getElementById("back").textContent=d[2];document.getElementById("count").textContent=(i+1)+" / "+deck.length;}
+fc.onclick=function(){fc.classList.toggle("flip");};
+document.getElementById("next").onclick=function(){if(deck.length){i=(i+1)%deck.length;show();}};
+document.getElementById("prev").onclick=function(){if(deck.length){i=(i-1+deck.length)%deck.length;show();}};
+document.getElementById("shuf").onclick=function(){for(var k=deck.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var t=deck[k];deck[k]=deck[j];deck[j]=t;}i=0;show();};
+document.getElementById("mode").onclick=function(){var c=document.getElementById("cards"),l=list;var toCards=c.hidden;c.hidden=!toCards;l.hidden=toCards;this.textContent=toCards?"Switch to list":"Switch to flashcards";};
+q.oninput=render;sel.onchange=render;render();
+</script></body></html>

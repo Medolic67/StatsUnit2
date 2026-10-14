@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Potential Problems with Sampling (2.4)</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Potential Problems with Sampling</h1>
+<p class="sub">Lesson 2.4: Undercoverage, nonresponse, response bias</p>
+<div class="bar"><button data-expand>Expand all answers</button></div>
+
+<h2>The three types of bias</h2>
+<div class="grid">
+<div class="card"><b>Undercoverage</b><br>Some individuals in the population are <b>less likely (or unable) to be chosen</b> because of how the sample is drawn.<br><i>Examples:</i> calling landlines only, surveying only homeowners, sampling only from those who signed up for remote learning, only people who attended in person.</div>
+<div class="card"><b>Nonresponse</b><br>Individuals who <b>were chosen</b> for the sample but <b>can't be reached or refuse to answer</b>.<br><i>Examples:</i> don't answer or hang up on a phone call, only 28 of 100 emailed students reply.</div>
+<div class="card"><b>Response bias</b><br>A problem in the <b>data-gathering instrument or process</b> that leads to inaccurate answers.<br><i>Examples:</i> people lie (self-reported answers on sensitive topics), leading or loaded wording, interviewer's appearance (firefighter in uniform).</div>
+</div>
+
+<div class="warn"><b>Nonresponse ≠ voluntary response</b>Nonresponse: people were <i>randomly chosen</i> but didn't respond. Voluntary response: people <i>chose themselves</i> to respond with no random selection. The Gallup teacher survey (random sample of 100, 56 replied) is <b>nonresponse</b>.</div>
+<div class="warn"><b>Does a bigger sample fix bias?</b>No. A larger sample reduces variability but not bias. Bias is fixed by changing the <b>method</b> (e.g. follow up with non-responders using multiple contact methods; use an SRS; reword questions; anonymize).</div>
+
+<h2>Direction of bias: how to write it</h2>
+<ol>
+<li>Name the bias type.</li>
+<li>Explain <b>in context</b> who is missing or what is distorting answers.</li>
+<li>State <b>overestimate or underestimate</b> (or "higher/lower than the true value") and why.</li>
+</ol>
+<div class="ok"><b>Template</b>"This is <u>[type]</u> bias because <u>[group]</u> are/is <u>[less likely to be included / won't answer honestly]</u>. These people tend to <u>[have larger/smaller values]</u>, so the sample result will likely <u>overestimate/underestimate</u> the true <u>[parameter in context]</u>."</div>
+
+<h2>Worked examples from class</h2>
+<details><summary>Springfield mayor: average age from a list of homeowners</summary>
+<p><b>Undercoverage</b>: non-homeowners are not on the list. <b>Overestimate</b> true mean age because older people are more likely to own homes; younger people are more likely to rent.</p></details>
+<details><summary>Principal emails 100 students, 40 reply, 90% did all homework</summary>
+<p><b>Nonresponse</b> (60 did not reply) and possibly <b>response bias</b> (students may lie). <b>Overestimate</b> the true proportion who did all homework: students who did their work are more likely to reply (or claim they did it).</p></details>
+<details><summary>Firefighter in uniform asking about fire department budget cuts</summary>
+<p><b>Response bias</b>: people know he is a firefighter and may not admit support for cuts. <b>Underestimate</b> true proportion who support cuts.</p></details>
+<details><summary>Counselor: remote vs in-person learning (3 parts)</summary>
+<ul><li>Random sample only from those who signed up for remote learning → <b>undercoverage</b> (in-person students are excluded).</li>
+<li>Random sample of 100 emailed, only 28 respond → <b>nonresponse</b> (72 chosen students did not respond; not voluntary response).</li>
+<li>First 50 students who submit preferences → <b>convenience sample</b>.</li></ul></details>
+<details><summary>Social media survey with a leading question</summary>
+<p>The question describes negative effects of social media first. This is <b>response bias due to wording</b>. Students will feel pressure to look good, so the survey will likely <b>underestimate</b> the true average hours per week.</p></details>
+
+<h2>Homework 2.4 answers</h2>
+<details><summary>Q1–Q3</summary>
+<ul>
+<li><b>1a:</b> convenience sample, voluntary response sample. <b>1b:</b> undercoverage, nonresponse, response bias (wording, lying).</li>
+<li><b>2 (Whole Fruits):</b> undercoverage; they surveyed only their own customers, who tend to value organic and pay more, not all millennials. 70% likely <b>overestimates</b> the true percent.</li>
+<li><b>3 (Gallup teachers):</b> nonresponse (random sample, 44 didn't reply). Planning time reported is probably <b>greater</b> than true (teachers with more free time are more likely to respond). A larger sample would <b>not</b> reduce this bias; follow up with the non-responders instead.</li>
+</ul></details>
+<details><summary>Q4–Q7</summary>
+<ul>
+<li><b>4 (OoberLift):</b> (1) response bias from the leading wording that primes 5-star ratings; (2) voluntary response / nonresponse, since only app users motivated to answer will respond and unhappy users may skip it. Ratings likely too high.</li>
+<li><b>5 (practice logs):</b> response bias (students self-report and may inflate minutes; teacher requirement is 15 min and they logged 17.8 on average). Sample average likely <b>greater</b> than true. <b>Fix:</b> have parents sign off, or use an anonymous reporting process / direct measurement.</li>
+<li><b>6 MCQ:</b> the teacher only asked employees who attended <b>in person</b> → undercoverage <b>(B)</b>.</li>
+<li><b>7 MCQ:</b> reduce nonresponse by offering multiple ways to contact and follow up <b>(C)</b>.</li>
+</ul></details>
+
+<h2>Quick self-check</h2>
+<table>
+<tr><th>Scenario</th><th>Bias type</th></tr>
+<tr><td>Survey of airline satisfaction handed out only in first class</td><td>Undercoverage</td></tr>
+<tr><td>Random sample of 200 phone numbers; only 60 pick up</td><td>Nonresponse</td></tr>
+<tr><td>"Do you agree that the wasteful city should cut taxes?"</td><td>Response bias (wording)</td></tr>
+<tr><td>Students asked in front of classmates how much they cheat</td><td>Response bias (lying)</td></tr>
+<tr><td>Poll link posted on a blog</td><td>Voluntary response</td></tr>
+</table>
+</main>
+<script src="app.js"></script></body></html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FRQ Templates</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>FRQ Templates</h1>
+<p class="sub">Fill-in-the-blank frameworks for the most common written responses in Unit 2. Always answer <b>in context</b>.</p>
+
+<h2>Sampling</h2>
+<div class="card"><b>Describe an SRS</b><br>"Label each <u>[individual]</u> from 1 to <u>[N]</u>. Use a random number generator to select <u>[n]</u> unique numbers between 1 and <u>[N]</u>, ignoring repeats. The <u>[individuals]</u> with the matching labels are the sample."</div>
+<div class="card"><b>Describe a stratified sample</b><br>"Split the <u>[population]</u> into strata by <u>[variable]</u>. Within each stratum, label the individuals and use a random number generator to select an SRS of <u>[n_i]</u> unique individuals (proportional to stratum size). Combine the selected individuals."</div>
+<div class="card"><b>Describe a cluster sample</b><br>"Each <u>[group]</u> is a cluster. Label the clusters 1 to <u>[k]</u>. Use a random number generator to select <u>[m]</u> clusters. Survey <b>every</b> individual in the selected clusters."</div>
+<div class="card"><b>Describe a systematic sample</b><br>"Label individuals 1 to N. Compute k = N/n = <u>[k]</u>. Use a random number generator to pick a starting number from 1 to k. Select that individual and every k-th individual after, until n are chosen."</div>
+<div class="card"><b>Why stratify / cluster / systematic?</b><br>Stratify: guarantees every group is represented and lowers variability (when groups differ on the response). Cluster: cheaper and easier to carry out. Systematic: easy and spreads the sample across the whole population.</div>
+
+<h2>Bias</h2>
+<div class="card"><b>Identify and explain bias</b><br>"This is <u>[undercoverage / nonresponse / response bias]</u> because <u>[context: who is left out, who didn't respond, or why answers are inaccurate]</u>. The estimate will likely be <u>[too high / too low]</u> because <u>[reason]</u>."</div>
+<div class="card"><b>Good vs bad estimates (bias vs variability)</b><br>"The method has <u>[low/high]</u> bias because the estimates are centered <u>[at / away from]</u> the true value of <u>[parameter]</u>, and <u>[low/high]</u> variability because the estimates are <u>[close together / spread out]</u>."</div>
+
+<h2>Studies and experiments</h2>
+<div class="card"><b>Observational or experiment?</b><br>"This is an <u>[experiment / observational study]</u> because researchers <u>[imposed treatments on the subjects / only observed and did not impose any treatment]</u>."</div>
+<div class="card"><b>Experimental units, treatments, response</b><br>"The experimental units are <u>[who/what]</u>. The treatments are <u>[levels of the explanatory variable]</u>. The response variable is <u>[measured outcome]</u>."</div>
+<div class="card"><b>Random assignment</b><br>"Label the <u>[N]</u> <u>[units]</u> 1 to <u>[N]</u>. Use a random number generator to select <u>[N/2]</u> unique numbers. Those units get <u>[treatment 1]</u>; the remaining units get <u>[treatment 2]</u>."</div>
+<div class="card"><b>Purpose of random assignment</b><br>"It creates roughly equivalent groups, so any difference in <u>[response]</u> can be attributed to the treatments (not to confounding variables)."</div>
+<div class="card"><b>Purpose of a control/placebo group</b><br>"It provides a baseline for comparison, so we can tell whether <u>[treatment]</u> actually changes <u>[response]</u>."</div>
+<div class="card"><b>Blinding</b><br>"Subjects don't know which treatment they receive (and the evaluator doesn't either, making it double-blind) so that expectations can't influence the results."</div>
+<div class="card"><b>Why block?</b><br>"<u>[Blocking variable]</u> may affect <u>[response]</u>. Blocking by <u>[variable]</u> controls for it and reduces variability within each block, making it easier to detect differences between the treatments."</div>
+<div class="card"><b>Matched pairs</b><br>"Each <u>[subject]</u> receives both treatments in random order (determined by a coin flip), or subjects are paired by <u>[variable]</u> and one in each pair is randomly assigned each treatment."</div>
+
+<h3>Outline checklist (drawn diagram)</h3>
+<ul>
+<li>Start with the <b>number of units</b> (e.g. "300 subjects").</li>
+<li>Arrow to <b>random assignment</b> (or to <b>blocks</b> first, then random assignment <i>within</i> each block).</li>
+<li>Show <b>group sizes</b> that are about equal, with each treatment labeled.</li>
+<li>Arrow into <b>compare [response variable]</b>. For blocks: compare within each block, then combine.</li>
+</ul>
+
+<h2>Inference</h2>
+<div class="card"><b>What does one dot represent?</b><br>"One simulated random assignment (or sample), assuming <u>[no effect]</u>, and the resulting <u>[difference of means / percent]</u>."</div>
+<div class="card"><b>Is it statistically significant?</b><br>"In the simulation, <u>[x]</u>% of the dots were as extreme or more extreme than our actual result of <u>[value]</u>. Because <u>[x]</u>% is <u>[less/more]</u> than 5%, the result <u>[is / is not]</u> statistically significant, so we <u>[do / do not]</u> have convincing evidence that <u>[treatment]</u> causes <u>[change]</u>."</div>
+<div class="card"><b>Scope of inference</b><br>"Because <u>[a random sample was / no random sample was]</u> used, we <u>[can generalize to all <b>population</b> / cannot generalize beyond the sample]</u>. Because <u>[random assignment was / was not]</u> used, we <u>[can conclude causation / can only conclude an association]</u>."</div>
+
+<h2>Common word-choice fixes</h2>
+<table>
+<tr><th>Instead of…</th><th>Write…</th></tr>
+<tr><td>"The study proves…"</td><td>"There is convincing evidence that…"</td></tr>
+<tr><td>"Random" (alone)</td><td>"Use a random number generator to select unique numbers"</td></tr>
+<tr><td>"Bias" (alone)</td><td>Name the type and the direction, in context</td></tr>
+<tr><td>"It's an experiment"</td><td>"…because researchers randomly assigned/imposed treatments"</td></tr>
+<tr><td>"Larger sample reduces bias"</td><td>"Larger sample reduces variability"</td></tr>
+<tr><td>"Generalizes to everyone"</td><td>Name the specific population that was sampled</td></tr>
+</table>
+</main>
+<script src="app.js"></script></body></html>

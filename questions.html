@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Question Bank</title><link rel="stylesheet" href="style.css"></head>
+<body><nav id="nav"></nav>
+<main>
+<h1>Question Bank</h1>
+<p class="sub">Multiple-choice quiz with instant feedback, plus free-response practice.</p>
+<div class="bar">
+<select id="lesson"><option value="">All lessons</option></select>
+<button id="start">Start / Restart quiz</button>
+<span id="score" class="small"></span>
+</div>
+<div id="quiz"></div>
+<h2>Free-response practice</h2>
+<p class="small">Write your answer first, then open the model answer.</p>
+<div id="frq"></div>
+</main>
+<script src="questions.js"></script>
+<script src="app.js"></script>
+<script>
+var sel=document.getElementById("lesson");
+var ls=[];QS.concat(FRQ).forEach(function(x){if(ls.indexOf(x.u)<0)ls.push(x.u);});ls.sort();
+ls.forEach(function(l){var o=document.createElement("option");o.value=l;o.textContent="Lesson "+l;sel.appendChild(o);});
+var quiz=document.getElementById("quiz"),scoreEl=document.getElementById("score");
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var right=0,done=0,total=0;
+function start(){
+ var l=sel.value;var pool=QS.filter(function(x){return !l||x.u===l;});
+ shuffle(pool);right=0;done=0;total=pool.length;
+ quiz.innerHTML="";
+ pool.forEach(function(x,n){
+  var d=document.createElement("div");d.className="card";
+  d.innerHTML='<span class="pill">'+x.u+'</span><b>'+(n+1)+'. '+esc(x.q)+'</b>';
+  var letters="ABCD";var ans=false;
+  var ex=document.createElement("div");ex.hidden=true;ex.className="tip";ex.innerHTML="<b>Explanation</b>"+esc(x.e);
+  var btns=x.o.map(function(t,k){
+   var b=document.createElement("button");b.className="opt";b.textContent="("+letters[k]+") "+t;
+   b.onclick=function(){
+    if(ans)return;ans=true;done++;
+    if(k===x.a){right++;b.classList.add("right");}else{b.classList.add("wrong");btns[x.a].classList.add("right");}
+    ex.hidden=false;scoreEl.textContent="Score: "+right+" / "+done+" answered ("+total+" total)";
+    if(done===total){scoreEl.textContent="Final score: "+right+" / "+total+" ("+Math.round(100*right/total)+"%)";}
+   };
+   d.appendChild(b);return b;});
+  d.appendChild(ex);quiz.appendChild(d);
+ });
+ scoreEl.textContent="Score: 0 / 0 answered ("+total+" total)";
+}
+document.getElementById("start").onclick=start;sel.onchange=start;start();
+var fr=document.getElementById("frq");
+FRQ.forEach(function(x,n){
+ var d=document.createElement("div");d.className="card";
+ d.innerHTML='<span class="pill">'+x.u+'</span><b>'+(n+1)+'. '+esc(x.q)+'</b><details><summary>Model answer</summary>'+esc(x.a)+'</details>';
+ fr.appendChild(d);
+});
+</script></body></html>
